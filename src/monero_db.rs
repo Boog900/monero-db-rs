@@ -70,14 +70,13 @@ impl MoneroDB {
 
     /// Gets block from the database.
     ///
-    pub fn get_block(&self, block_height: u64) -> Result<Block, Error> {
-        get_item(
-            &self.env,
-            self.sub_dbs.blocks,
-            &block_height.to_le_bytes(),
-            &[0],
-            15,
-        )
+    pub fn get_block(&self, block_height: u64) -> Result<Vec<u8>, Error> {
+
+        get_raw_item(&self.env,
+                     self.sub_dbs.blocks,
+                     &block_height.to_le_bytes(),
+                     &[0],
+                     15,)
     }
 
     /// Gets block info from the database
@@ -147,14 +146,13 @@ impl MoneroDB {
 
     /// Gets the pruned part of the transaction
     ///
-    pub fn get_tx_pruned(&self, txn_id: u64) -> Result<TransactionPruned, Error> {
-        get_item(
-            &self.env,
-            self.sub_dbs.txs_pruned,
-            &txn_id.to_le_bytes(),
-            &[0],
-            15,
-        )
+    pub fn get_tx_pruned(&self, txn_id: u64) -> Result<Vec<u8>, Error> {
+
+        get_raw_item(&self.env,
+                     self.sub_dbs.txs_pruned,
+                     &txn_id.to_le_bytes(),
+                     &[0],
+                     15,)
     }
 
     /// Gets the prunable part of the transaction

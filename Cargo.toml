@@ -1,3 +1,9 @@
+[workspace]
+members = [
+    "serai"
+
+]
+
 [package]
 name = "monero_db"
 version = "0.1.0"
@@ -9,3 +15,6 @@ license = "MIT"
 monero-lmdb-rkv = {git = "https://github.com/Boog900/lmdb-rs.git"}
 monero = {git = "https://github.com/Boog900/monero-rs.git", branch="db", features=["database"]}
 thiserror = "1.0.24"
+zeroize = "1.5.7"
+[dev-dependencies]
+monero-serai = {git="https://github.com/Cuprate/serai.git", branch="legacy"}

@@ -1,0 +1,11 @@
+[package]
+name = "monero-serai-db-test"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+monero_db = {path=".."}
+monero-serai = {git="https://github.com/serai-dex/serai.git"}
+hex = "0.4"
